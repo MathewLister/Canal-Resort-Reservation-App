@@ -1,6 +1,10 @@
 # Canal-Resort-Reservation-App
 Canal Resort has asked for a "prototype" reservation form to be created.  (It is a prototype in that it will likely be a web app, but for now they want to see it as a desktop one.)  They are going to let you figure out placement of the controls on the form, and you want to do this well so that you get the eventual "build our site" contract.
+
+
 Your job: create an app meeting the specifications below.  
+
+
 Page 1: Reservation Details
 Use StackedWidget to make multiple pages. Check out the video tutorial first.
 In Page 1,
@@ -24,6 +28,8 @@ o	HINT – can any of this be handled using a spinbox with minimum or maximum va
 •	The user can select optional vehicle parking (for $12.75 per night).
 •	The user should be able to get an idea of cost (not including taxes and fees yet) in this page in real time as they choose/change the above options.
 •	This page should show ‘next’ button to proceed to the next page, once a user enters all necessary information.
+
+
 Page 2: Cost and Payment Information 
 •	This page should display the charges calculated. Use multiple labels to display these. This includes Charges for:
 o	Room
@@ -36,6 +42,8 @@ o	Once they select the card type, they can enter their card number.  The box for
 o	The user should also enter the expiration date (mm/yyyy) for the card.
 •	Include a ‘pay’ button which will finalize the transaction. Once clicked, a dialog message box informing that the transaction was successfully processed, then the next page will appear.
 •	Include a ‘back’ button to get back to the page 1 and change the booking information.
+
+
 Page 3: Reservation Confirmation
 •	Display a confirmation message with:
 o	The reservation details
@@ -45,6 +53,8 @@ o	The payment information
 	Paid with credit card ending with xxxx (the last 4 digits)
 o	If you can thank the user it’d look more polite.
 •	Include a close button that will terminate the app.
+
+
 
 Notes:
 •	[UI Control Choice] Your choice of UI element will be graded.
@@ -66,6 +76,8 @@ o	Use named (const) constants for the prices.
 o	Make sure there are no “extra” event handling procedures in your code
 	(that is, event handlers with no code in them).
 	If you accidentally add any, you will need to remove them.
+
+
 
 HAND IN is to be via Canvas. 
 Deliverables:
