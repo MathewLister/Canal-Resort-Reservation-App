@@ -5,7 +5,7 @@ Canal Resort has asked for a "prototype" reservation form to be created.  (It is
 Your job: create an app meeting the specifications below.  
 
 
-Page 1: Reservation Details
+# Page 1: Reservation Details
 Use StackedWidget to make multiple pages. Check out the video tutorial first.
 In Page 1,
 •	The user will enter her/his name as the reservation name.
@@ -30,7 +30,7 @@ o	HINT – can any of this be handled using a spinbox with minimum or maximum va
 •	This page should show ‘next’ button to proceed to the next page, once a user enters all necessary information.
 
 
-Page 2: Cost and Payment Information 
+# Page 2: Cost and Payment Information 
 •	This page should display the charges calculated. Use multiple labels to display these. This includes Charges for:
 o	Room
 o	Tax (which is 15% and applies ONLY to the room charge, not parking or Resort Fee – see below for Resort fee)
@@ -44,7 +44,7 @@ o	The user should also enter the expiration date (mm/yyyy) for the card.
 •	Include a ‘back’ button to get back to the page 1 and change the booking information.
 
 
-Page 3: Reservation Confirmation
+# Page 3: Reservation Confirmation
 •	Display a confirmation message with:
 o	The reservation details
 	First day, how many nights, room type, parking included or not, how many adults/children
@@ -56,7 +56,7 @@ o	If you can thank the user it’d look more polite.
 
 
 
-Notes:
+# Notes:
 •	[UI Control Choice] Your choice of UI element will be graded.
 o	Keep the user from making errors by selecting appropriate control types AND minimum/maximum values for this controls as helpful.
 o	For example, use TextBox control for data entry if that is the only way to get the entry.
@@ -79,8 +79,8 @@ o	Make sure there are no “extra” event handling procedures in your code
 
 
 
-HAND IN is to be via Canvas. 
-Deliverables:
+# HAND IN is to be via Canvas. 
+# Deliverables:
 1)	Your Demo Video. Less than 3 minutes. Make sure to include a narration.
 You can upload your video file to Youtube (unlisted privacy option) and leave its link in a submission comment as an alternative.
 In your demo video, TEST YOUR SOLUTION by trying the following scenario AND by trying out invalid options (what might those be???). You may use your name or any other name.
