@@ -11,6 +11,7 @@ ReservationApp::ReservationApp(QWidget *parent)
     netTotal = 0;
 
     ui->NetTotal->setNum(netTotal);
+    ui->NextButton->setEnabled(false);
 
     //Setters
     AsteriskRed();
@@ -56,7 +57,14 @@ void ReservationApp::SetDate()
     ui->dateEdit->setDate(QDate::currentDate());
 }
 
+void ReservationApp::CheckMovePage2()
+{
+    int i = ui->RoomTypeDropdown->currentIndex();
 
+    // Can only go to next page if name, room type are filled out
+    if (!ui->First->text().isEmpty() && !ui->Last->text().isEmpty() && i != 0)
+        ui->NextButton->setEnabled(true);
+}
 
 
 
@@ -133,6 +141,8 @@ void ReservationApp::on_AdultSpinBox_valueChanged(int arg1)
         if (ui->AdultSpinBox->value() == 3)
             ui->ChildrenSpinBox->setMaximum(0);
     }
+
+    CheckMovePage2();
 }
 
 // Handles room changes
@@ -172,6 +182,8 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1
         if (ui->AdultSpinBox->value() == 3)
             ui->ChildrenSpinBox->setMaximum(0);
     }
+
+    CheckMovePage2();
 }
 
 // Updates running net total based on room type and number of nights
@@ -199,7 +211,9 @@ void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
     {
         netTotal = 350 * numNights;
     }
+
     ui->NetTotal->setNum(netTotal);
+    CheckMovePage2();
 }
 
 // Updates running net total with parking option
@@ -237,5 +251,7 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(int index)
     {
         netTotal = 350;
     }
+
+    CheckMovePage2();
     ui->NetTotal->setNum(netTotal);
 }

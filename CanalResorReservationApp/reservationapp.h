@@ -55,5 +55,7 @@ private:
     void SetRoomTypes();
     void SetDate();
 
+    void CheckMovePage2();
+
 };
 #endif // RESERVATIONAPP_H
