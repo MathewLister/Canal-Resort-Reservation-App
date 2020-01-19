@@ -91,9 +91,21 @@ void ReservationApp::CheckMovePage2()
 
 //----------------------------------------------------------------------------------------------------------------
 //Next and Back Buttons
+
+//Moves user to page 2
+// Calculates payment info based on inputs from page 1
 void ReservationApp::on_NextButton_clicked()
 {
+    taxes = taxRate * netTotal;
+    fee = resortFee * numberOfNights;
+    grossTotal = netTotal + taxes + fee + parking;
+
     ui->stackedWidget->setCurrentIndex(1);
+    ui->RoomLabel->setNum(netTotal);
+    ui->TaxLabel->setNum(taxes);
+    ui->ParkingLabel->setNum(parking);
+    ui->ResortFeeLabel->setNum(fee);
+    ui->TotalDueLabel->setNum(grossTotal);
 }
 
 void ReservationApp::on_BackButton_clicked()
@@ -200,6 +212,7 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1
 void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
 {
     int i = ui->RoomTypeDropdown->currentIndex();
+    numberOfNights = numNights;
 
     if (i == 0)
     {
@@ -222,6 +235,12 @@ void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
         netTotal = atriumKing * numNights;
     }
 
+    //Updates parking if number of nights gets changed
+    if (ui->ParkingCheckBox->isChecked())
+        parking = parkingPerNight * numNights;
+    else if (ui->ParkingCheckBox->isChecked() == false)
+        parking = 0;
+
     ui->NetTotal->setNum(netTotal);
     CheckMovePage2();
 }
@@ -233,9 +252,6 @@ void ReservationApp::on_ParkingCheckBox_stateChanged(int state)
         parking = parkingPerNight * ui->NightsSpinBox->value();
     else if (ui->ParkingCheckBox->isChecked() == false)
         parking = 0;
-
-    //netTotal += parking;
-    //ui->NetTotal->setNum(netTotal);
 }
 
 //Updates running net cost based on room type

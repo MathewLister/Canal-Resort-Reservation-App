@@ -18,18 +18,24 @@ public:
     QString firstName;
     QString lastName;
 
-    //before taxes
+    //before taxes for room per night
     double netTotal;
-    //after taxes
+    //after taxes grand total
     double grossTotal;
-    double parking;
+    //charges per night
+    double parking = 0;
+    double fee = 15;
     double taxes;
+    int numberOfNights = 1;
 
     static const int standard2Queen = 284;
     static const int atrium2Queen = 325;
     static const int standardKing = 290;
     static const int atriumKing = 350;
+    static const int resortFee = 15;
     const double parkingPerNight = 12.75;
+    const double taxRate = .15;
+
 
 
 private slots:
