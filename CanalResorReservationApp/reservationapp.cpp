@@ -196,19 +196,19 @@ void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
     }
     if (i == 1)
     {
-        netTotal = 284 * numNights;
+        netTotal = standard2Queen * numNights;
     }
     else if (i == 2)
     {
-        netTotal = 325 * numNights;
+        netTotal = atrium2Queen * numNights;
     }
     else if (i == 3)
     {
-        netTotal = 290 * numNights;
+        netTotal = standardKing * numNights;
     }
     else if (i == 4)
     {
-        netTotal = 350 * numNights;
+        netTotal = atriumKing * numNights;
     }
 
     ui->NetTotal->setNum(netTotal);

@@ -27,6 +27,11 @@ public:
     double taxes;
     double fees;
 
+    const int standard2Queen = 284;
+    const int atrium2Queen = 325;
+    const int standardKing = 290;
+    const int atriumKing = 350;
+
 private slots:
     void on_NextButton_clicked();
 
