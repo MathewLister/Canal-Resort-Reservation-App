@@ -23,7 +23,6 @@ public:
     //after taxes
     double grossTotal;
     double parking;
-
     double taxes;
 
     static const int standard2Queen = 284;

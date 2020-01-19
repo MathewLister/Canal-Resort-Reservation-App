@@ -3,6 +3,7 @@
 
 #include <QDebug>
 
+//Constructor
 ReservationApp::ReservationApp(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ReservationApp)
@@ -10,17 +11,17 @@ ReservationApp::ReservationApp(QWidget *parent)
     ui->setupUi(this);
     netTotal = 0;
 
-    ui->NetTotal->setNum(netTotal);
-    ui->NextButton->setEnabled(false);
-
     //Setters
     AsteriskRed();
     SetRoomTypes();
     SetDate();
+    ui->NetTotal->setNum(netTotal);
+    ui->NextButton->setEnabled(false);
 
 }
 
-//Make Asterisks red
+//--------------------------------------------------------------------------------------------
+//Set Asterisks red
 void ReservationApp::AsteriskRed()
 {
     QPalette palette = ui->Astreisk->palette();
@@ -38,8 +39,6 @@ void ReservationApp::SetName()
 {
     firstName = ui->First->text();
     lastName = ui->Last->text();
-
-    //**TESTING** qDebug() << firstName;
 }
 
 //Set room and view type combo box
@@ -52,11 +51,14 @@ void ReservationApp::SetRoomTypes()
     ui->RoomTypeDropdown->addItem("Atrium 1-king room - $350 per night");
 }
 
+//Set arrival data to default to current date
 void ReservationApp::SetDate()
 {
     ui->dateEdit->setDate(QDate::currentDate());
 }
 
+//Set next button
+//Check if user is ready to move to page 2
 void ReservationApp::CheckMovePage2()
 {
     int i = ui->RoomTypeDropdown->currentIndex();
@@ -68,19 +70,7 @@ void ReservationApp::CheckMovePage2()
         ui->NextButton->setEnabled(false);
 }
 
-//Destructor
-ReservationApp::~ReservationApp()
-{
-    delete ui;
-}
-
-
-
-
-
-
-
-
+//----------------------------------------------------------------------------------------------------------------
 //Next and Back Buttons
 void ReservationApp::on_NextButton_clicked()
 {
@@ -102,10 +92,11 @@ void ReservationApp::on_BackButton_2_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-
-// Handles guest number changes
-// Change max number of guests depending on room type
-// Sets max and min for adults and children based on current number of adults
+//--------------------------------------------------------------------------------------------------
+//Handles guest number changes
+//Change max number of guests depending on room type
+//Sets max and min for adults and children based on current number of adults
+//Wont let you pass to next page unless you chose an option
 void ReservationApp::on_AdultSpinBox_valueChanged(int arg1)
 {
     int i = ui->RoomTypeDropdown->currentIndex();
@@ -144,9 +135,10 @@ void ReservationApp::on_AdultSpinBox_valueChanged(int arg1)
     CheckMovePage2();
 }
 
-// Handles room changes
-// Change max number of guests depending on room type
-// Sets max and min for adults and children based on current number of adults
+//Handles room changes
+//Change max number of guests depending on room type
+//Sets max and min for adults and children based on current number of adults
+//Wont let you pass to next page unless you chose an option
 void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1)
 {
     int i = ui->RoomTypeDropdown->currentIndex();
@@ -185,7 +177,7 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1
     CheckMovePage2();
 }
 
-// Updates running net total based on room type and number of nights
+//Updates running net total based on room type and number of nights
 void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
 {
     int i = ui->RoomTypeDropdown->currentIndex();
@@ -215,19 +207,19 @@ void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
     CheckMovePage2();
 }
 
-// Updates running net total with parking option
+//Updates running net total with parking option
 void ReservationApp::on_ParkingCheckBox_stateChanged(int state)
 {
     if (ui->ParkingCheckBox->isChecked())
         parking = parkingPerNight * ui->NightsSpinBox->value();
     else if (ui->ParkingCheckBox->isChecked() == false)
-        parking = - parking;
+        parking = 0;
 
-    netTotal += parking;
-    ui->NetTotal->setNum(netTotal);
+    //netTotal += parking;
+    //ui->NetTotal->setNum(netTotal);
 }
 
-// Updates net cost based on room type
+//Updates running net cost based on room type
 void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(int index)
 {
     if (index == 0)
@@ -255,12 +247,20 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(int index)
     ui->NetTotal->setNum(netTotal);
 }
 
+//Updates enable/disable next button if first name is changed to empty string
 void ReservationApp::on_FirstLineEdit_textChanged(const QString &arg1)
 {
     CheckMovePage2();
 }
-
+//Updates enable/disable next button if last name is changed to empty string
 void ReservationApp::on_LastLineEdit_textChanged(const QString &arg1)
 {
     CheckMovePage2();
+}
+
+//----------------------------------------------------------------------------------------
+//Destructor
+ReservationApp::~ReservationApp()
+{
+    delete ui;
 }
