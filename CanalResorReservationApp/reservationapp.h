@@ -33,6 +33,7 @@ private:
     //Make Asterisk red
     void AsteriskRed();
     void SetName();
+    void SetRoomTypes();
 
 
 };

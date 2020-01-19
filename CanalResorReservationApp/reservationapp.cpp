@@ -9,14 +9,18 @@ ReservationApp::ReservationApp(QWidget *parent)
 {
     ui->setupUi(this);
     AsteriskRed();
+    SetRoomTypes();
 }
 
 //Make Asterisk red
 void ReservationApp::AsteriskRed()
 {
     QPalette palette = ui->Astreisk->palette();
+    QPalette palette1 = ui->Astreisk_3->palette();
     palette.setColor(QPalette::WindowText, Qt::red);
+    palette1.setColor(QPalette::WindowText, Qt::red);
     ui->Astreisk->setPalette(palette);
+    ui->Astreisk_3->setPalette(palette1);
 }
 
 //Set first and last name
@@ -26,6 +30,15 @@ void ReservationApp::SetName()
     lastName = ui->Last->text();
 
     //**TESTING** qDebug() << firstName;
+}
+
+//Set room and view type combo box
+void ReservationApp::SetRoomTypes()
+{
+    ui->RoomTypeDropdown->addItem("Standard 2-queen room - $284 per night");
+    ui->RoomTypeDropdown->addItem("Atrium 2-queen room - $325 per night");
+    ui->RoomTypeDropdown->addItem("Standard 1-king room - $290 per night");
+    ui->RoomTypeDropdown->addItem("Atrium 1-king room - $350 per night");
 }
 
 ReservationApp::~ReservationApp()
