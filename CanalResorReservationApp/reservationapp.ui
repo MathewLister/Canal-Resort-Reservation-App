@@ -29,12 +29,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.12
-
-Material.theme: Material.Dark
-</string>
+     <string notr="true"/>
     </property>
     <widget class="QWidget" name="ReservationPage">
      <widget class="QLineEdit" name="FirstLineEdit">
@@ -132,6 +127,9 @@ Material.theme: Material.Dark
         <width>121</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">&lt;font color = #FEB616&gt;</string>
       </property>
       <property name="text">
        <string>Next</string>
@@ -487,6 +485,35 @@ Material.theme: Material.Dark
        <string>Back</string>
       </property>
      </widget>
+     <widget class="QLabel" name="ColorBar_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>931</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #213771</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="CanalLogo_2">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>0</y>
+        <width>171</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>            logo</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="ConfirmationPage">
      <widget class="QPushButton" name="BackButton_2">
@@ -500,6 +527,35 @@ Material.theme: Material.Dark
       </property>
       <property name="text">
        <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ColorBar_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>931</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #213771</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="CanalLogo_3">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>0</y>
+        <width>171</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>            logo</string>
       </property>
      </widget>
     </widget>

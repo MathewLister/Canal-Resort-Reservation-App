@@ -36,6 +36,8 @@ void ReservationApp::loadLogo()
     }
 
     ui->CanalLogo->setPixmap(imageLogo);
+    ui->CanalLogo_2->setPixmap(imageLogo);
+    ui->CanalLogo_3->setPixmap(imageLogo);
 }
 
 //Set Asterisks red
