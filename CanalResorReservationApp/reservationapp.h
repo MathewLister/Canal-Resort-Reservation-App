@@ -17,5 +17,10 @@ public:
 
 private:
     Ui::ReservationApp *ui;
+
+    //Make Asterisk red
+    void AsteriskRed();
+
+
 };
 #endif // RESERVATIONAPP_H

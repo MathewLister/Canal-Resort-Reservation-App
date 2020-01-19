@@ -6,6 +6,15 @@ ReservationApp::ReservationApp(QWidget *parent)
     , ui(new Ui::ReservationApp)
 {
     ui->setupUi(this);
+    AsteriskRed();
+}
+
+//Make Asterisk red
+void ReservationApp::AsteriskRed()
+{
+    QPalette palette = ui->Astreisk->palette();
+    palette.setColor(QPalette::WindowText, Qt::red);
+    ui->Astreisk->setPalette(palette);
 }
 
 ReservationApp::~ReservationApp()
