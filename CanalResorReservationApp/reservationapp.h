@@ -46,6 +46,10 @@ private slots:
 
     void on_RoomTypeDropdown_currentIndexChanged(int index);
 
+    void on_FirstLineEdit_textChanged(const QString &arg1);
+
+    void on_LastLineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::ReservationApp *ui;
 

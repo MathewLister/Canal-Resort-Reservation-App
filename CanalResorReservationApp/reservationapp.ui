@@ -24,7 +24,7 @@
      </rect>
     </property>
     <widget class="QWidget" name="ReservationPage">
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="FirstLineEdit">
       <property name="geometry">
        <rect>
         <x>160</x>
@@ -52,7 +52,7 @@
        <string>Name</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="LastLineEdit">
       <property name="geometry">
        <rect>
         <x>460</x>
@@ -373,7 +373,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>13</pointsize>
         </font>
        </property>
        <property name="text">
@@ -383,15 +383,15 @@
       <widget class="QLabel" name="DollarSign">
        <property name="geometry">
         <rect>
-         <x>80</x>
-         <y>30</y>
-         <width>71</width>
-         <height>31</height>
+         <x>90</x>
+         <y>20</y>
+         <width>101</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>13</pointsize>
         </font>
        </property>
        <property name="text">
@@ -401,15 +401,15 @@
       <widget class="QLabel" name="NetTotal">
        <property name="geometry">
         <rect>
-         <x>100</x>
-         <y>29</y>
-         <width>111</width>
-         <height>31</height>
+         <x>110</x>
+         <y>20</y>
+         <width>101</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>13</pointsize>
         </font>
        </property>
        <property name="text">

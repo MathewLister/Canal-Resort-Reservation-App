@@ -62,14 +62,13 @@ void ReservationApp::CheckMovePage2()
     int i = ui->RoomTypeDropdown->currentIndex();
 
     // Can only go to next page if name, room type are filled out
-    if (!ui->First->text().isEmpty() && !ui->Last->text().isEmpty() && i != 0)
+    if (!ui->FirstLineEdit->text().isEmpty() && !ui->LastLineEdit->text().isEmpty() && i != 0)
         ui->NextButton->setEnabled(true);
+    else
+        ui->NextButton->setEnabled(false);
 }
 
-
-
-
-
+//Destructor
 ReservationApp::~ReservationApp()
 {
     delete ui;
@@ -254,4 +253,14 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(int index)
 
     CheckMovePage2();
     ui->NetTotal->setNum(netTotal);
+}
+
+void ReservationApp::on_FirstLineEdit_textChanged(const QString &arg1)
+{
+    CheckMovePage2();
+}
+
+void ReservationApp::on_LastLineEdit_textChanged(const QString &arg1)
+{
+    CheckMovePage2();
 }
