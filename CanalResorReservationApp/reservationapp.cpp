@@ -8,6 +8,10 @@ ReservationApp::ReservationApp(QWidget *parent)
     , ui(new Ui::ReservationApp)
 {
     ui->setupUi(this);
+    netTotal = 0;
+
+    ui->NetTotal->setNum(netTotal);
+
     //Setters
     AsteriskRed();
     SetRoomTypes();
@@ -40,6 +44,7 @@ void ReservationApp::SetName()
 //Set room and view type combo box
 void ReservationApp::SetRoomTypes()
 {
+    ui->RoomTypeDropdown->addItem(""); //No option chosen
     ui->RoomTypeDropdown->addItem("Standard 2-queen room - $284 per night");
     ui->RoomTypeDropdown->addItem("Atrium 2-queen room - $325 per night");
     ui->RoomTypeDropdown->addItem("Standard 1-king room - $290 per night");
@@ -98,7 +103,7 @@ void ReservationApp::on_AdultSpinBox_valueChanged(int arg1)
 {
     int i = ui->RoomTypeDropdown->currentIndex();
 
-    if (i == 0 || i == 1)
+    if (i == 1 || i == 2)
     {
         ui->AdultSpinBox->setMaximum(4);
 
@@ -115,7 +120,7 @@ void ReservationApp::on_AdultSpinBox_valueChanged(int arg1)
             ui->ChildrenSpinBox->setMaximum(0);
     }
 
-    else if (i == 2 || i == 3)
+    else if (i == 3 || i == 4)
     {
         ui->AdultSpinBox->setMaximum(3);
 
@@ -137,7 +142,7 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1
 {
     int i = ui->RoomTypeDropdown->currentIndex();
 
-    if (i == 0 || i == 1)
+    if (i == 1 || i == 2)
     {
         ui->AdultSpinBox->setMaximum(4);
 
@@ -154,7 +159,7 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1
             ui->ChildrenSpinBox->setMaximum(0);
     }
 
-    else if (i == 2 || i == 3)
+    else if (i == 3 || i == 4)
     {
         ui->AdultSpinBox->setMaximum(3);
 
@@ -167,4 +172,70 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1
         if (ui->AdultSpinBox->value() == 3)
             ui->ChildrenSpinBox->setMaximum(0);
     }
+}
+
+// Updates running net total based on room type and number of nights
+void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
+{
+    int i = ui->RoomTypeDropdown->currentIndex();
+
+    if (i == 0)
+    {
+        netTotal = 0;
+    }
+    if (i == 1)
+    {
+        netTotal = 284 * numNights;
+    }
+    else if (i == 2)
+    {
+        netTotal = 325 * numNights;
+    }
+    else if (i == 3)
+    {
+        netTotal = 290 * numNights;
+    }
+    else if (i == 4)
+    {
+        netTotal = 350 * numNights;
+    }
+    ui->NetTotal->setNum(netTotal);
+}
+
+// Updates running net total with parking option
+void ReservationApp::on_ParkingCheckBox_stateChanged(int state)
+{
+    if (ui->ParkingCheckBox->isChecked())
+        parking = 12.75 * ui->NightsSpinBox->value();
+    else if (ui->ParkingCheckBox->isChecked() == false)
+        parking = - parking;
+
+    netTotal += parking;
+    ui->NetTotal->setNum(netTotal);
+}
+
+// Updates net cost based on room type
+void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(int index)
+{
+    if (index == 0)
+    {
+        netTotal = 0;
+    }
+    if (index == 1)
+    {
+        netTotal = 284;
+    }
+    else if (index == 2)
+    {
+        netTotal = 325;
+    }
+    else if (index == 3)
+    {
+        netTotal = 290;
+    }
+    else if (index == 4)
+    {
+        netTotal = 350;
+    }
+    ui->NetTotal->setNum(netTotal);
 }
