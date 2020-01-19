@@ -25,6 +25,7 @@ void ReservationApp::AsteriskRed()
     ui->Astreisk_3->setPalette(palette);
     ui->Astreisk_4->setPalette(palette);
     ui->Astreisk_5->setPalette(palette);
+    ui->Astreisk_6->setPalette(palette);
 }
 
 //Set first and last name
@@ -88,4 +89,82 @@ void ReservationApp::on_BackButton_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }
-//---------------------------------------------------------
+
+
+// Handles guest number changes
+// Change max number of guests depending on room type
+// Sets max and min for adults and children based on current number of adults
+void ReservationApp::on_AdultSpinBox_valueChanged(int arg1)
+{
+    int i = ui->RoomTypeDropdown->currentIndex();
+
+    if (i == 0 || i == 1)
+    {
+        ui->AdultSpinBox->setMaximum(4);
+
+        if (ui->AdultSpinBox->value() == 1)
+            ui->ChildrenSpinBox->setMaximum(3);
+
+        if (ui->AdultSpinBox->value() == 2)
+            ui->ChildrenSpinBox->setMaximum(2);
+
+        if (ui->AdultSpinBox->value() == 3)
+            ui->ChildrenSpinBox->setMaximum(1);
+
+        if (ui->AdultSpinBox->value() == 4)
+            ui->ChildrenSpinBox->setMaximum(0);
+    }
+
+    else if (i == 2 || i == 3)
+    {
+        ui->AdultSpinBox->setMaximum(3);
+
+        if (ui->AdultSpinBox->value() == 1)
+            ui->ChildrenSpinBox->setMaximum(2);
+
+        if (ui->AdultSpinBox->value() == 2)
+            ui->ChildrenSpinBox->setMaximum(1);
+
+        if (ui->AdultSpinBox->value() == 3)
+            ui->ChildrenSpinBox->setMaximum(0);
+    }
+}
+
+// Handles room changes
+// Change max number of guests depending on room type
+// Sets max and min for adults and children based on current number of adults
+void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(const QString &arg1)
+{
+    int i = ui->RoomTypeDropdown->currentIndex();
+
+    if (i == 0 || i == 1)
+    {
+        ui->AdultSpinBox->setMaximum(4);
+
+        if (ui->AdultSpinBox->value() == 1)
+            ui->ChildrenSpinBox->setMaximum(3);
+
+        if (ui->AdultSpinBox->value() == 2)
+            ui->ChildrenSpinBox->setMaximum(2);
+
+        if (ui->AdultSpinBox->value() == 3)
+            ui->ChildrenSpinBox->setMaximum(1);
+
+        if (ui->AdultSpinBox->value() == 4)
+            ui->ChildrenSpinBox->setMaximum(0);
+    }
+
+    else if (i == 2 || i == 3)
+    {
+        ui->AdultSpinBox->setMaximum(3);
+
+        if (ui->AdultSpinBox->value() == 1)
+            ui->ChildrenSpinBox->setMaximum(2);
+
+        if (ui->AdultSpinBox->value() == 2)
+            ui->ChildrenSpinBox->setMaximum(1);
+
+        if (ui->AdultSpinBox->value() == 3)
+            ui->ChildrenSpinBox->setMaximum(0);
+    }
+}

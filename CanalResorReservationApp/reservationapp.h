@@ -27,6 +27,10 @@ private slots:
 
     void on_BackButton_2_clicked();
 
+    void on_AdultSpinBox_valueChanged(int arg1);
+
+    void on_RoomTypeDropdown_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::ReservationApp *ui;
 
