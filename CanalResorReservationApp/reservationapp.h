@@ -30,10 +30,11 @@ private slots:
 private:
     Ui::ReservationApp *ui;
 
-    //Make Asterisk red
+    //Setters
     void AsteriskRed();
     void SetName();
     void SetRoomTypes();
+    void SetDate();
 
 
 };

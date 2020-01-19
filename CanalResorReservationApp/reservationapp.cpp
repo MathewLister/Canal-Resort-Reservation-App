@@ -8,19 +8,23 @@ ReservationApp::ReservationApp(QWidget *parent)
     , ui(new Ui::ReservationApp)
 {
     ui->setupUi(this);
+    //Setters
     AsteriskRed();
     SetRoomTypes();
+    SetDate();
+
 }
 
-//Make Asterisk red
+//Make Asterisks red
 void ReservationApp::AsteriskRed()
 {
     QPalette palette = ui->Astreisk->palette();
-    QPalette palette1 = ui->Astreisk_3->palette();
     palette.setColor(QPalette::WindowText, Qt::red);
-    palette1.setColor(QPalette::WindowText, Qt::red);
+
     ui->Astreisk->setPalette(palette);
-    ui->Astreisk_3->setPalette(palette1);
+    ui->Astreisk_3->setPalette(palette);
+    ui->Astreisk_4->setPalette(palette);
+    ui->Astreisk_5->setPalette(palette);
 }
 
 //Set first and last name
@@ -41,10 +45,28 @@ void ReservationApp::SetRoomTypes()
     ui->RoomTypeDropdown->addItem("Atrium 1-king room - $350 per night");
 }
 
+void ReservationApp::SetDate()
+{
+    ui->dateEdit->setDate(QDate::currentDate());
+}
+
+
+
+
+
+
+
 ReservationApp::~ReservationApp()
 {
     delete ui;
 }
+
+
+
+
+
+
+
 
 //Next and Back Buttons
 void ReservationApp::on_NextButton_clicked()
