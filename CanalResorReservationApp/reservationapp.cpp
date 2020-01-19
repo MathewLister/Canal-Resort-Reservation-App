@@ -219,7 +219,7 @@ void ReservationApp::on_NightsSpinBox_valueChanged(int numNights)
 void ReservationApp::on_ParkingCheckBox_stateChanged(int state)
 {
     if (ui->ParkingCheckBox->isChecked())
-        parking = 12.75 * ui->NightsSpinBox->value();
+        parking = parkingPerNight * ui->NightsSpinBox->value();
     else if (ui->ParkingCheckBox->isChecked() == false)
         parking = - parking;
 
@@ -236,19 +236,19 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(int index)
     }
     if (index == 1)
     {
-        netTotal = 284;
+        netTotal = standard2Queen;
     }
     else if (index == 2)
     {
-        netTotal = 325;
+        netTotal = atrium2Queen;
     }
     else if (index == 3)
     {
-        netTotal = 290;
+        netTotal = standardKing;
     }
     else if (index == 4)
     {
-        netTotal = 350;
+        netTotal = atriumKing;
     }
 
     CheckMovePage2();
