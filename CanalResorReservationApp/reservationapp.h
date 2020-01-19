@@ -58,6 +58,10 @@ private slots:
 private:
     Ui::ReservationApp *ui;
 
+    QPixmap imageLogo;
+
+    void loadLogo();
+
     //Setters
     void AsteriskRed();
     void SetName();

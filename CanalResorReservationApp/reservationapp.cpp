@@ -1,6 +1,8 @@
 #include "reservationapp.h"
 #include "ui_reservationapp.h"
 
+
+
 #include <QDebug>
 
 //Constructor
@@ -9,9 +11,11 @@ ReservationApp::ReservationApp(QWidget *parent)
     , ui(new Ui::ReservationApp)
 {
     ui->setupUi(this);
+
     netTotal = 0;
 
     //Setters
+    loadLogo();
     AsteriskRed();
     SetRoomTypes();
     SetDate();
@@ -21,6 +25,19 @@ ReservationApp::ReservationApp(QWidget *parent)
 }
 
 //--------------------------------------------------------------------------------------------
+//Load logo
+void ReservationApp::loadLogo()
+{
+    QString logoFileName = ":/ResortLogo.jpg";
+
+    if (imageLogo.load(logoFileName))
+    {
+        imageLogo = imageLogo.scaled(ui->CanalLogo->size(), Qt::KeepAspectRatioByExpanding);
+    }
+
+    ui->CanalLogo->setPixmap(imageLogo);
+}
+
 //Set Asterisks red
 void ReservationApp::AsteriskRed()
 {
