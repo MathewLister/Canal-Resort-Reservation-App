@@ -15,11 +15,24 @@ public:
     ReservationApp(QWidget *parent = nullptr);
     ~ReservationApp();
 
+    QString firstName;
+    QString lastName;
+
+private slots:
+    void on_NextButton_clicked();
+
+    void on_BackButton_clicked();
+
+    void on_NextButton_2_clicked();
+
+    void on_BackButton_2_clicked();
+
 private:
     Ui::ReservationApp *ui;
 
     //Make Asterisk red
     void AsteriskRed();
+    void SetName();
 
 
 };
