@@ -27,6 +27,10 @@ ReservationApp::ReservationApp(QWidget *parent)
 void ReservationApp::loadLogo()
 {
     QString logoFileName = ":/ResortLogo.jpg";
+    QString AmericaFileName = ":/AmericaExpress.png";
+    QString VisaFileName = ":/VISA.png";
+    QString MasterFileName = ":/MasterCard.png";
+    QString DiscoverFileName = ":/Discover.png";
 
     if (imageLogo.load(logoFileName))
     {
@@ -36,6 +40,20 @@ void ReservationApp::loadLogo()
     ui->CanalLogo->setPixmap(imageLogo);
     ui->CanalLogo_2->setPixmap(imageLogo);
     ui->CanalLogo_3->setPixmap(imageLogo);
+
+    if (AmericanExpress.load(AmericaFileName) && Visa.load(VisaFileName) && Mastercard.load(MasterFileName) && Discover.load(DiscoverFileName))
+    {
+        AmericanExpress = AmericanExpress.scaled(ui->AmericanLogo->size(), Qt::KeepAspectRatioByExpanding);
+        Visa = Visa.scaled(ui->VisaLogo->size(), Qt::KeepAspectRatioByExpanding);
+        Mastercard = Mastercard.scaled(ui->MasterLogo->size(), Qt::KeepAspectRatioByExpanding);
+        Discover = Discover.scaled(ui->DiscoverLogo->size(), Qt::KeepAspectRatioByExpanding);
+    }
+
+    ui->AmericanLogo->setPixmap(AmericanExpress);
+    ui->VisaLogo->setPixmap(Visa);
+    ui->MasterLogo->setPixmap(Mastercard);
+    ui->DiscoverLogo->setPixmap(Discover);
+
 }
 
 //Set Asterisks red

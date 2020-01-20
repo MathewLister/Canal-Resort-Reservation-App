@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>ResortLogo.jpg</file>
+        <file>AmericaExpress.png</file>
+        <file>Discover.png</file>
+        <file>MasterCard.png</file>
+        <file>VISA.png</file>
     </qresource>
 </RCC>

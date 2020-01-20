@@ -30,7 +30,11 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
+    AmericaExpress.png \
+    Discover.png \
+    MasterCard.png \
+    VISA.png
 
 RESOURCES += \
     images.qrc

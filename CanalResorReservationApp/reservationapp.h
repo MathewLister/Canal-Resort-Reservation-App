@@ -75,6 +75,10 @@ private:
     Ui::ReservationApp *ui;
 
     QPixmap imageLogo;
+    QPixmap AmericanExpress;
+    QPixmap Visa;
+    QPixmap Mastercard;
+    QPixmap Discover;
 
     void loadLogo();
 
