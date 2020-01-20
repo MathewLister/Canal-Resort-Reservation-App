@@ -1,9 +1,6 @@
 #include "reservationapp.h"
 #include "ui_reservationapp.h"
-
-
-
-#include <QDebug>
+#include <QMessageBox>
 
 //Constructor
 ReservationApp::ReservationApp(QWidget *parent)
@@ -21,6 +18,7 @@ ReservationApp::ReservationApp(QWidget *parent)
     SetDate();
     ui->NetTotal->setNum(netTotal);
     ui->NextButton->setEnabled(false);
+    ui->NextButton_2->setEnabled(false);
 
 }
 
@@ -92,6 +90,20 @@ void ReservationApp::CheckMovePage2()
         ui->NextButton->setEnabled(false);
 }
 
+//Set pay button
+//Check if user chose a card type and entered correct ammount of numbers before moving on
+void ReservationApp::CheckMovePage3()
+{
+    if (ui->AmericanExpress->isChecked() && ui->CardNumberEntry->text().length() == 21)
+        ui->NextButton_2->setEnabled(true);
+    else if (ui->Visa->isChecked() && ui->CardNumberEntry->text().length() == 25)
+        ui->NextButton_2->setEnabled(true);
+    else if (ui->Mastercard->isChecked() && ui->CardNumberEntry->text().length() == 25)
+        ui->NextButton_2->setEnabled(true);
+    else if (ui->Discover->isChecked() && ui->CardNumberEntry->text().length() == 25)
+        ui->NextButton_2->setEnabled(true);
+}
+
 //----------------------------------------------------------------------------------------------------------------
 //Next and Back Buttons
 
@@ -118,6 +130,10 @@ void ReservationApp::on_BackButton_clicked()
 
 void ReservationApp::on_NextButton_2_clicked()
 {
+    QMessageBox msgBox;
+    msgBox.setText("The transaction was successfully processed.");
+    msgBox.setWindowTitle("Thank you!");
+    msgBox.exec();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -306,24 +322,33 @@ ReservationApp::~ReservationApp()
 //Handlers for card type choice
 void ReservationApp::on_AmericanExpress_clicked()
 {
+    ui->NextButton_2->setEnabled(false);
     ui->CardNumberEntry->setInputMask("3999 - 999999 - 99999;0");
     ui->CardNumberEntry->clear();
 }
 
 void ReservationApp::on_Visa_clicked()
 {
+    ui->NextButton_2->setEnabled(false);
     ui->CardNumberEntry->setInputMask("4999 - 9999 - 9999 - 9999;0");
     ui->CardNumberEntry->clear();
 }
 
 void ReservationApp::on_Mastercard_clicked()
 {
+    ui->NextButton_2->setEnabled(false);
     ui->CardNumberEntry->setInputMask("5999 - 9999 - 9999 - 9999;0");
     ui->CardNumberEntry->clear();
 }
 
 void ReservationApp::on_Discover_clicked()
 {
+    ui->NextButton_2->setEnabled(false);
     ui->CardNumberEntry->setInputMask("6999 - 9999 - 9999 - 9999;0");
     ui->CardNumberEntry->clear();
+}
+
+void ReservationApp::on_CardNumberEntry_textChanged(const QString &arg1)
+{
+    CheckMovePage3();
 }

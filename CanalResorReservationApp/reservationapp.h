@@ -69,6 +69,8 @@ private slots:
 
     void on_Discover_clicked();
 
+    void on_CardNumberEntry_textChanged(const QString &arg1);
+
 private:
     Ui::ReservationApp *ui;
 
@@ -83,6 +85,7 @@ private:
     void SetDate();
 
     void CheckMovePage2();
+    void CheckMovePage3();
 
 };
 #endif // RESERVATIONAPP_H
