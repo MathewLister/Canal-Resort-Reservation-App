@@ -13,7 +13,6 @@ ReservationApp::ReservationApp(QWidget *parent)
 
     //Setters
     loadLogo();
-    AsteriskRed();
     SetRoomTypes();
     SetDate();
     ui->NetTotal->setNum(netTotal);
@@ -54,21 +53,6 @@ void ReservationApp::loadLogo()
     ui->MasterLogo->setPixmap(Mastercard);
     ui->DiscoverLogo->setPixmap(Discover);
 
-}
-
-//Set Asterisks red
-void ReservationApp::AsteriskRed()
-{
-    QPalette palette = ui->Astreisk->palette();
-    palette.setColor(QPalette::WindowText, Qt::red);
-
-    ui->Astreisk->setPalette(palette);
-    ui->Astreisk_3->setPalette(palette);
-    ui->Astreisk_4->setPalette(palette);
-    ui->Astreisk_5->setPalette(palette);
-    ui->Astreisk_6->setPalette(palette);
-    ui->Astreisk_7->setPalette(palette);
-    ui->Astreisk_8->setPalette(palette);
 }
 
 //Set first and last name
@@ -158,6 +142,12 @@ void ReservationApp::on_NextButton_2_clicked()
 void ReservationApp::on_BackButton_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+//Closes the app
+void ReservationApp::on_FinsihButton_clicked()
+{
+    close();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -370,3 +360,5 @@ void ReservationApp::on_CardNumberEntry_textChanged(const QString &arg1)
 {
     CheckMovePage3();
 }
+
+

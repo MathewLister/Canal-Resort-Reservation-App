@@ -71,6 +71,8 @@ private slots:
 
     void on_CardNumberEntry_textChanged(const QString &arg1);
 
+    void on_FinsihButton_clicked();
+
 private:
     Ui::ReservationApp *ui;
 
@@ -83,7 +85,6 @@ private:
     void loadLogo();
 
     //Setters
-    void AsteriskRed();
     void SetName();
     void SetRoomTypes();
     void SetDate();
