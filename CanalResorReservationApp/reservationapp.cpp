@@ -51,6 +51,8 @@ void ReservationApp::AsteriskRed()
     ui->Astreisk_4->setPalette(palette);
     ui->Astreisk_5->setPalette(palette);
     ui->Astreisk_6->setPalette(palette);
+    ui->Astreisk_7->setPalette(palette);
+    ui->Astreisk_8->setPalette(palette);
 }
 
 //Set first and last name
@@ -74,6 +76,7 @@ void ReservationApp::SetRoomTypes()
 void ReservationApp::SetDate()
 {
     ui->dateEdit->setDate(QDate::currentDate());
+    ui->ExpDateEntry->setDate(QDate::currentDate());
 }
 
 //Set next button
@@ -298,4 +301,29 @@ void ReservationApp::on_LastLineEdit_textChanged(const QString &arg1)
 ReservationApp::~ReservationApp()
 {
     delete ui;
+}
+
+//Handlers for card type choice
+void ReservationApp::on_AmericanExpress_clicked()
+{
+    ui->CardNumberEntry->setInputMask("3999 - 999999 - 99999;0");
+    ui->CardNumberEntry->clear();
+}
+
+void ReservationApp::on_Visa_clicked()
+{
+    ui->CardNumberEntry->setInputMask("4999 - 9999 - 9999 - 9999;0");
+    ui->CardNumberEntry->clear();
+}
+
+void ReservationApp::on_Mastercard_clicked()
+{
+    ui->CardNumberEntry->setInputMask("5999 - 9999 - 9999 - 9999;0");
+    ui->CardNumberEntry->clear();
+}
+
+void ReservationApp::on_Discover_clicked()
+{
+    ui->CardNumberEntry->setInputMask("6999 - 9999 - 9999 - 9999;0");
+    ui->CardNumberEntry->clear();
 }

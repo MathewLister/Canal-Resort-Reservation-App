@@ -61,6 +61,14 @@ private slots:
 
     void on_LastLineEdit_textChanged(const QString &arg1);
 
+    void on_AmericanExpress_clicked();
+
+    void on_Visa_clicked();
+
+    void on_Mastercard_clicked();
+
+    void on_Discover_clicked();
+
 private:
     Ui::ReservationApp *ui;
 
