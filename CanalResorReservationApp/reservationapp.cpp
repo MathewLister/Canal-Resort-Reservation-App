@@ -141,7 +141,8 @@ void ReservationApp::on_NextButton_2_clicked()
     msgBox.setText("The transaction was successfully processed.");
     msgBox.setWindowTitle("Thank you!");
     msgBox.exec();
-    lastFour = ui->CardNumberEntry->text();
+    QString temp = ui->CardNumberEntry->text();
+    lastFour = temp.right(4);
     SetPage3();
     ui->stackedWidget->setCurrentIndex(2);
 }
@@ -394,7 +395,7 @@ void ReservationApp::SetPage3()
     ui->ConfNumAdultsNum->setNum(numAdults);
     ui->ConfNumkidsNum->setNum(numChildren);
     ui->ConfTotalNum->setNum(grossTotal);
-    ui->ConfCard->setText(ui->ConfCard->text() + (lastFour.length() -4));
+    ui->ConfCard->setText(ui->ConfCard->text() + lastFour);
 
 
 }
