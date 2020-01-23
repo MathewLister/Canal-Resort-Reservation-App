@@ -17,6 +17,11 @@ public:
 
     QString firstName;
     QString lastName;
+    QString arrivalDate;
+    int roomType;
+    int numAdults;
+    int numChildren;
+    QString lastFour;
 
     //before taxes for room per night
     double netTotal;
@@ -91,6 +96,8 @@ private:
 
     void CheckMovePage2();
     void CheckMovePage3();
+
+    void SetPage3();
 
 };
 #endif // RESERVATIONAPP_H

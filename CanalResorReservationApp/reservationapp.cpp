@@ -1,6 +1,7 @@
 #include "reservationapp.h"
 #include "ui_reservationapp.h"
 #include <QMessageBox>
+#include <string>
 
 //Constructor
 ReservationApp::ReservationApp(QWidget *parent)
@@ -113,6 +114,10 @@ void ReservationApp::CheckMovePage3()
 // Calculates payment info based on inputs from page 1
 void ReservationApp::on_NextButton_clicked()
 {
+    QDate temp = ui->dateEdit->date();
+    arrivalDate = temp.toString();
+    numAdults = ui->AdultSpinBox->value();
+    numChildren = ui->ChildrenSpinBox->value();
     taxes = taxRate * netTotal;
     fee = resortFee * numberOfNights;
     grossTotal = netTotal + taxes + fee + parking;
@@ -136,6 +141,8 @@ void ReservationApp::on_NextButton_2_clicked()
     msgBox.setText("The transaction was successfully processed.");
     msgBox.setWindowTitle("Thank you!");
     msgBox.exec();
+    lastFour = ui->CardNumberEntry->text();
+    SetPage3();
     ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -291,18 +298,22 @@ void ReservationApp::on_RoomTypeDropdown_currentIndexChanged(int index)
     if (index == 1)
     {
         netTotal = standard2Queen;
+        roomType = 1;
     }
     else if (index == 2)
     {
         netTotal = atrium2Queen;
+        roomType = 2;
     }
     else if (index == 3)
     {
         netTotal = standardKing;
+        roomType = 3;
     }
     else if (index == 4)
     {
         netTotal = atriumKing;
+        roomType = 4;
     }
 
     CheckMovePage2();
@@ -361,4 +372,30 @@ void ReservationApp::on_CardNumberEntry_textChanged(const QString &arg1)
     CheckMovePage3();
 }
 
+
+void ReservationApp::SetPage3()
+{
+    ui->ConfArrival->setText(ui->ConfArrival->text() + arrivalDate);
+    ui->ConfNumNightsNum->setNum(numberOfNights);
+    if (roomType == 1)
+        ui->ConfRoom->setText(ui->ConfRoom->text() + "Standard 2-Queen room");
+    else if (roomType ==2)
+        ui->ConfRoom->setText(ui->ConfRoom->text() + "Atrium 2-Queen room");
+    else if (roomType == 3)
+        ui->ConfRoom->setText(ui->ConfRoom->text() + "Standard 1-King room");
+    else if (roomType == 4)
+        ui->ConfRoom->setText(ui->ConfRoom->text() + "Atrium 1-King room");
+
+    if (parking == 0)
+        ui->ConfParking->setText(ui->ConfParking->text() + "No");
+    else
+        ui->ConfParking->setText(ui->ConfParking->text() + "Yes");
+
+    ui->ConfNumAdultsNum->setNum(numAdults);
+    ui->ConfNumkidsNum->setNum(numChildren);
+    ui->ConfTotalNum->setNum(grossTotal);
+    ui->ConfCard->setText(ui->ConfCard->text() + (lastFour.length() -4));
+
+
+}
 
