@@ -9,4 +9,4 @@ Canal Resort has asked for a "prototype" reservation form to be created.  (It is
 ![Page 2 Demo](Gifs/Page2.gif)
 
 # Page 3: Reservation Confirmation
-	Coming soon....
+![Page 3 Demo](Gifs/Page3.gif)
